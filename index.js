@@ -29,7 +29,7 @@ const connectDB = async () => {
   try {
     await sequelize.authenticate()
     //createRelations()
-   //  await sequelize.sync({ force: true })
+    await sequelize.sync({ force: true })
   } catch (error) {
     console.log(error)
     throw new Error('Cannot connect to DB')
@@ -39,13 +39,16 @@ const connectDB = async () => {
 const start = async () => {
   
   try {
+
     app.use(express.json())
     app.get('/', (req, res) => res.send('Welcome to CarTripConnect API'))
     //app.use('/api', router)
     await app.listen(process.env.PORT || 2222)
     await connectDB()
-    console.info(`Taskify API running on port ${process.env.PORT}`)
+    console.info(`CarTripConnect API running on port ${process.env.PORT}`)
+
   } catch (error) {
+
     console.log(error)
     throw new Error(`Cannot start server on ${process.env.PORT}`)
   }
