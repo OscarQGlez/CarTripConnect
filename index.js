@@ -29,7 +29,7 @@ const connectDB = async () => {
   try {
     await sequelize.authenticate()
     createRelations()
-    await sequelize.sync({ force: true })
+    await sequelize.sync({ alter: true })
   } catch (error) {
     console.log(error)
     throw new Error('Cannot connect to DB')
@@ -52,7 +52,6 @@ const start = async () => {
     console.log(error)
     throw new Error(`Cannot start server on ${process.env.PORT}`)
   }
-
 }
 
 start()

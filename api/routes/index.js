@@ -10,6 +10,6 @@ router.use('/user', userRouter)
 //router.use('/rating', ratingRouter)
 //router.use('/origin', originRouter)
 //router.use('/destination', destinationRouter)
-router.use('/auth', auth)
+//router.use('/auth', auth)
 
 module.exports = router 
