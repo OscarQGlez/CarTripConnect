@@ -6,6 +6,12 @@ const Origin = sequelize.define('origin', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  town: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 })
 
 module.exports = Origin
+
+

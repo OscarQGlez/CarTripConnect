@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { getAllOrigins, getOneOrigin, createOrigin, updateOrigin, deleteOrigin } = require('../controllers/user.controller')
+const { getAllOrigins, getOneOrigin, createOrigin, updateOrigin, deleteOrigin } = require('../controllers/origin.controller')
 
 router.get('/', getAllOrigins)
 router.get('/:id', getOneOrigin)

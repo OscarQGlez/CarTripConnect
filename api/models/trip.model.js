@@ -4,12 +4,13 @@ const { DataTypes } = require('sequelize')
 const Trip = sequelize.define('trip', {
   
   date: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.DATE,
     allowNull: false,
   },
   departure_time: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.TIME,
     allowNull: false,
+    defaultValue: '00:00'
   },
   available_seats: {
     type: DataTypes.INTEGER,
@@ -32,12 +33,12 @@ const Trip = sequelize.define('trip', {
     allowNull: false,
   },
   pets_accepted: {
-    type: DataTypes.STRING,
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
   maximun_baggage: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: DataTypes.INTEGER,
+    
   },
 })
 

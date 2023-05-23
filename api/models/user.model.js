@@ -35,7 +35,7 @@ const User = sequelize.define('user', {
     allowNull: false
   },
   age: {
-    type: DataTypes.DATE,
+    type: DataTypes.INTEGER,
     allowNull: false
   }
 })
