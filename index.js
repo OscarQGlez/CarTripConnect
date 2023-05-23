@@ -6,13 +6,14 @@
   //npm i dotenv
   //npm i mysql2
   //npm i sequelize
-
+  //npm i bcrypt
+// npm i jsonwebtoken
 
  // no instalaldos
     //npm i cors
     //npm i morgan
-    //npm i bcrypt
-    // npm i jsonwebtoken
+    
+    
 
 
 require('dotenv').config()
