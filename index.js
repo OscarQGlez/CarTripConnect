@@ -19,16 +19,16 @@ require('dotenv').config()
 const express = require('express')
 
 const sequelize = require('./db')
-//const createRelations = require('./db/relationships')
+const createRelations = require('./db/relationships')
 
-//const router = require('./api/routes')
+const router = require('./api/routes')
 
 const app = express()
 
 const connectDB = async () => {
   try {
     await sequelize.authenticate()
-    //createRelations()
+    createRelations()
     await sequelize.sync({ force: true })
   } catch (error) {
     console.log(error)
@@ -41,8 +41,8 @@ const start = async () => {
   try {
 
     app.use(express.json())
-    app.get('/', (req, res) => res.send('Welcome to CarTripConnect API'))
-    //app.use('/api', router)
+    //app.get('/api', (req, res) => res.send('Welcome to CarTripConnect API'))
+    app.use('/api', router)
     await app.listen(process.env.PORT || 2222)
     await connectDB()
     console.info(`CarTripConnect API running on port ${process.env.PORT}`)

@@ -18,7 +18,7 @@ const User = sequelize.define('user', {
       len: [8, 100],
     }
   },
-  addres: {
+  address: {
     type: DataTypes.STRING,
     allowNull: false
   },

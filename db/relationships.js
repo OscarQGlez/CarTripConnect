@@ -15,8 +15,8 @@ const createRelations = async () => {
   User.hasMany(Rating)
   Rating.belongsTo(User)
 
-  User.belongsToMany(Trip, { through: 'Passenger' })
-  Trip.belongsToMany(User, { through: 'Passenger' })
+  User.belongsToMany(Trip, { through: 'request' })
+  Trip.belongsToMany(User, { through: 'request' })
 
 
   Trip.hasMany(Destination)
@@ -28,7 +28,7 @@ const createRelations = async () => {
   Trip.hasMany(Rating)
   Rating.belongsTo(Trip)
 
-
+/*
 // One to One
   Student.hasOne(ContactInfo)
   ContactInfo.belongsTo(Student)
@@ -42,7 +42,7 @@ const createRelations = async () => {
 
   Student.belongsToMany(Class, { through: 'Student_Class' })
   Class.belongsToMany(Student, { through: 'Student_Class' })
-
+*/
 }
 
 module.exports = createRelations
