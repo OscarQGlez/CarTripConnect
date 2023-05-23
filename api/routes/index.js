@@ -4,12 +4,12 @@ const userRouter = require('./user.router.js')
 //const ratingRouter = require('./rating.router')
 //const originRouter = require('./origin.router')
 //const destinationRouter = require('./destination.router')
-
+const authRouter = require('./auth.router.js')
 router.use('/user', userRouter)
 //router.use('/trip', tripRouter)
 //router.use('/rating', ratingRouter)
 //router.use('/origin', originRouter)
 //router.use('/destination', destinationRouter)
-router.use('/auth', auth)
+router.use('/auth', authRouter)
 
 module.exports = router 

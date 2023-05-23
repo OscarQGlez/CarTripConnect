@@ -6,13 +6,14 @@
   //npm i dotenv
   //npm i mysql2
   //npm i sequelize
-
+  //npm i bcrypt
+// npm i jsonwebtoken
 
  // no instalaldos
     //npm i cors
     //npm i morgan
-    //npm i bcrypt
-    // npm i jsonwebtoken
+    
+    
 
 
 require('dotenv').config()
@@ -29,7 +30,7 @@ const connectDB = async () => {
   try {
     await sequelize.authenticate()
     createRelations()
-    await sequelize.sync({ force: true })
+    await sequelize.sync({ alter: true })
   } catch (error) {
     console.log(error)
     throw new Error('Cannot connect to DB')
