@@ -12,4 +12,4 @@ router.use('/user', userRouter)
 //router.use('/destination', destinationRouter)
 router.use('/auth', auth)
 
-module.exports = router
+module.exports = router 
