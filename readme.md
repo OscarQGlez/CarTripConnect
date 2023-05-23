@@ -7,7 +7,7 @@ Se Creara una plataforma que facilite el intercambio de viajes entre personas qu
 
 Historia:
 
-Introduciendo nuestra innovadora Plataforma de Intercambio de Transporte, un proyecto revolucionario diseñado para abordar los desafíos de congestión vehicular y contaminación ambiental que afectan nuestras ciudades.
+Nuestra innovadora plataforma de intercambio de transporte es un proyecto revolucionario diseñado para abordar los desafíos de congestión vehicular y contaminación ambiental que afectan a nuestras ciudades.
 
 Nuestra plataforma se presenta como una solución eficiente y sostenible, alentando a los usuarios a compartir viajes con otras personas que se dirijan hacia destinos similares. Con una interfaz intuitiva y amigable, conectamos a individuos con la misma dirección, optimizando el uso de vehículos y reduciendo la cantidad de automóviles en las calles.
 
