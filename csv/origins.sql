@@ -1,0 +1,3 @@
+INSERT INTO `CarTripConnectDB`.`origins` (`id`,`location`,`town`,`createdAt`,`updatedAt`,`tripId`) VALUES ('1','Las Palmas de Gran Canaria','Las Palmas de Gran Canaria','2023-05-24 12:08:38','2023-05-24 12:08:38',NULL);
+INSERT INTO `CarTripConnectDB`.`origins` (`id`,`location`,`town`,`createdAt`,`updatedAt`,`tripId`) VALUES ('2','el fondillo','Las Palmas de Gran Canaria','2023-05-24 12:08:44','2023-05-24 12:08:44',NULL);
+INSERT INTO `CarTripConnectDB`.`origins` (`id`,`location`,`town`,`createdAt`,`updatedAt`,`tripId`) VALUES ('3','Carrizal','Ingenio','2023-05-24 12:09:01','2023-05-24 12:09:01',NULL);
