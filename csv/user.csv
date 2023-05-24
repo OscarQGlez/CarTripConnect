@@ -1,0 +1,4 @@
+id,name,email,password,address,phone,usertype,genre,age,createdAt,updatedAt
+1,Antonio,pepe@gmail.com,12345678,"calle margarita,4",555555555,driver,masculino,23,2023-05-23 15:42:09,2023-05-24 10:03:37
+3,John Smith,johnsmith@example.com,p@ssw0rd,123 Main Street,555-1234,user,male,30,2023-05-23 15:44:27,2023-05-23 15:44:27
+5,Jane Doe,janedoe@example.com,secure123,456 Elm Avenue,555-5678,user,female,25,2023-05-24 10:10:46,2023-05-24 10:10:46

@@ -15,8 +15,8 @@ const createRelations = async () => {
   User.hasMany(Rating)
   Rating.belongsTo(User)
 
-  User.belongsToMany(Trip, { through: 'request' })
-  Trip.belongsToMany(User, { through: 'request' })
+  User.belongsToMany(Trip, { through: 'requests' })
+  Trip.belongsToMany(User, { through: 'requests' })
 
 
   Trip.hasMany(Destination)
