@@ -1,4 +1,12 @@
 const Trip = require('../models/trip.model')
+const User = require('../models/user.model')
+const Origin = require('../models/origin.model')
+const Destination = require('../models/destination.model')
+const Rating = require('../models/rating.model')
+
+
+
+User, Origin, Destination, Rating
 
 async function getAllTrips(req, res) {
     try {
@@ -71,11 +79,31 @@ async function deleteTrip(req, res) {
     }
 }
 
+async function getAllTripEager(req, res) {
+    try {
+        const result = await Trip.findAll({
+            include: [Rating],
+            where: {
+                originId: req.params.originId,
+                destinationId: req.params.destinationId
+            }
+        })
+        if (result) {
+            return res.status(200).json(result)
+        } else {
+            return res.status(404).send('No TRIP found')
+        }
+    } catch (error) {
+        return res.status(500).send(error)
+    }
+}
+
 module.exports = {
     getAllTrips,
     getOneTrip,
     createTrip,
     updateTrip,
     deleteTrip,
+    getAllTripEager,
 
 }

@@ -8,6 +8,7 @@ const auth = require('./auth.router.js')
 
 
 
+
 router.use('/user', userRouter)
 router.use('/trip', tripRouter)
 router.use('/rating', ratingRouter)

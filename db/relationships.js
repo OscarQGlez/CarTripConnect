@@ -19,11 +19,11 @@ const createRelations = async () => {
   Trip.belongsToMany(User, { through: 'requests' })
 
 
-  Trip.hasMany(Destination)
-  Destination.belongsTo(Trip)
+  Destination.hasMany(Trip)
+  Trip.belongsTo(Destination)
 
-  Trip.hasMany(Origin)
-  Origin.belongsTo(Trip)
+  Origin.hasMany(Trip)
+  Trip.belongsTo(Origin)
 
   Trip.hasMany(Rating)
   Rating.belongsTo(Trip)

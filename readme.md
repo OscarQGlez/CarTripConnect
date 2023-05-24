@@ -138,6 +138,31 @@ MVP
  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+QUERY
+- Como usuario, quiero poder buscar viajes disponibles que se ajusten a mi ruta y horario.
+- Como usuario, quiero poder ver los viajes disponibles que se ajusten a mi ruta y horario.
+
+BUSCAR UN VIAJE
+APUNTARME A UN VIAJE
+QUITARME DE UN VIAJE
+CREAR UN VIAJE
+SABER CUANTOS  ASIENTOS LIBRE HAY EN UN VIAJE
+PODER VER MIS VIAJES
+
+
+PUNTUAR UN VIAJE
+COMENTAR UN VIAJE
+VER MIS COMENTARIOS Y MIS CALIFICACIONES
+
+
+
+-  
+- como usuario tengo que poder visualizar todos los trip que tengan asientos libres
+
+- como usuario, quiero tener la opción de establecer restricciones en cuanto al número máximo de pasajeros o el tamaño del equipaje permitido en mi vehículo, para asegurarme de que el viaje compartido sea cómodo y seguro. 
+ 
+-  Como usuario, quiero  recibir comentarios y calificaciones sobre la experiencia del viaje compartido. 
+
 
 
 
