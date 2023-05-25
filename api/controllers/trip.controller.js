@@ -175,7 +175,6 @@ async function provideFeedback(req, res) {
     }
 }
 
-
 module.exports = {
     getAllTrips,
     getOneTrip,
@@ -187,5 +186,4 @@ module.exports = {
     searchAllTripsRatings,
     addUserTrip,
     provideFeedback
-    
 }

@@ -18,7 +18,6 @@ router.get('/search',searchAvailableTrips)
 
 router.get('/searchAllTripsRatings', searchAllTripsRatings)
 
-
 router.get('/:id', getOneTrip)
 
 router.post('/offerTrip',checkAuth, offerTrip)
