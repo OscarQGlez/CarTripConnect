@@ -5,14 +5,18 @@ const { getAllTrips,
     createTrip,
     updateTrip,
     deleteTrip,
-    getAllTripEager } = require('../controllers/trip.controller')
+    getAllTripEager,
+    searchAvailableTrips } = require('../controllers/trip.controller')
 
 router.get('/', getAllTrips)
+router.get('/search',searchAvailableTrips)
 router.get('/:originId/:destinationId', getAllTripEager)
 router.get('/:id', getOneTrip)
-router.post('/', createTrip)
-router.put('/:id', updateTrip)
-router.delete('/:id', deleteTrip)
 
+router.post('/', createTrip)
+
+router.put('/:id', updateTrip)
+
+router.delete('/:id', deleteTrip)
 
 module.exports = router

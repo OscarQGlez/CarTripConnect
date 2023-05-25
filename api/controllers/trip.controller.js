@@ -3,7 +3,8 @@ const User = require('../models/user.model')
 const Origin = require('../models/origin.model')
 const Destination = require('../models/destination.model')
 const Rating = require('../models/rating.model')
-
+const sequelize = require('../../db')
+const { Op } = require('sequelize')
 
 
 User, Origin, Destination, Rating
@@ -97,6 +98,36 @@ async function getAllTripEager(req, res) {
         return res.status(500).send(error)
     }
 }
+//buscar y ver viajes disponibles que se ajusten a mi ruta y horario
+async function searchAvailableTrips(req, res) {
+    try {
+        const { originId, destinationId, departure_time } = req.body;
+        const result = await Trip.findAll({
+            where: {
+                originId,
+                destinationId,
+                departure_time: { [Op.gte]: departure_time } 
+            }
+        });
+
+        if (result.length > 0) {
+            return res.status(200).json(result);
+        } else {
+            return res.status(404).send('No trips available for the specified route and departure time');
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
+
+//poder publicar y ofrecer viajes en los que esté dispuesto a compartir mi vehículo con otros pasajeros
+
+
+
+
+
+
 
 module.exports = {
     getAllTrips,
@@ -105,5 +136,5 @@ module.exports = {
     updateTrip,
     deleteTrip,
     getAllTripEager,
-
+   searchAvailableTrips
 }
