@@ -1,5 +1,5 @@
 const router = require('express').Router()
-
+const checkAuth = require('../../middlewares/auth.middlewares.js')
 const { getAllRatings, getOneRating, createRating, updateRating, deleteRating } = require('../controllers/rating.controller')
 
 router.get('/', getAllRatings)

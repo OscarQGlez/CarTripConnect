@@ -107,13 +107,13 @@ async function searchAvailableTrips(req, res) {
 //poder publicar y ofrecer viajes en los que esté dispuesto a compartir mi vehículo con otros pasajeros
 
 async function offerTrip(req, res) {
-    try {
-        const { originId, destinationId, departure_time, available_seats, vehicle_type, favorite_genre, languaje, driving_skills,
-            pets_accepted, maximum_baggage } = req.body;
-
+   
+    try {      
+        req.body.userId = res.locals.user.id
         // Realiza la lógica para crear y guardar un nuevo viaje en la base de datos
         const newTrip = await Trip.create(req.body);
-        const user = await newTrip.setUsers(res.locals.user.id)
+
+     /*    const user = await newTrip.setUsers(res.locals.user.id) */
 
         return res.status(200).json(newTrip);
     } catch (error) {
@@ -158,16 +158,12 @@ async function addUserTrip(req, res) {
 //quiero contar con un sistema de retroalimentación bidireccional, permitiéndome tanto dar como recibir comentarios y calificaciones sobre la experiencia del viaje compartido, con el objetivo de mantener un entorno confiable y de calidad en la plataforma. 
 
 async function provideFeedback(req, res) {
-    try {
-        const { user_id_qualifier, user_id_qualified, score, comments } = req.body;
-
+    try {        
+        req.body.userId = res.locals.user.id
+        req.body.user_id_qualifier = res.locals.user.id
+        console.log(req.body)
         // Realiza la lógica para guardar el feedback en la base de datos
-        const newRating = await Rating.create({
-            user_id_qualifier: user_id_qualifier,
-            user_id_qualified: user_id_qualified,
-            score,
-            comments
-        });
+        const newRating = await Rating.create(req.body);
 
         return res.status(200).json(newRating);
     } catch (error) {
