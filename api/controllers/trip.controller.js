@@ -110,11 +110,12 @@ async function offerTrip(req, res) {
    
     try {      
         req.body.userId = res.locals.user.id
+        console.log(res.locals.user.id)
         // Realiza la lógica para crear y guardar un nuevo viaje en la base de datos
         const newTrip = await Trip.create(req.body);
-
+        console.log(newTrip)
      /*    const user = await newTrip.setUsers(res.locals.user.id) */
-
+        
         return res.status(200).json(newTrip);
     } catch (error) {
         return res.status(500).send(error);
@@ -142,9 +143,9 @@ async function searchAllTripsRatings(req, res) {
 async function addUserTrip(req, res) {
     try {
         const trip = await Trip.findByPk(req.params.tripId);
-        console.log(trip)
-        console.log(res.locals.user.id)
-        const user = await trip.setUsers(res.locals.user.id)
+        //console.log('--------',trip)
+        //console.log(res.locals.user.id)
+        const user = await trip.setUser(res.locals.user.id)
         if (user) {
             return res.status(200).json(user);
         } else {
