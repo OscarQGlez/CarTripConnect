@@ -80,24 +80,7 @@ async function deleteTrip(req, res) {
     }
 }
 
-async function getAllTripEager(req, res) {
-    try {
-        const result = await Trip.findAll({
-            include: [Rating],
-            where: {
-                originId: req.params.originId,
-                destinationId: req.params.destinationId
-            }
-        })
-        if (result) {
-            return res.status(200).json(result)
-        } else {
-            return res.status(404).send('No TRIP found')
-        }
-    } catch (error) {
-        return res.status(500).send(error)
-    }
-}
+
 //buscar y ver viajes disponibles que se ajusten a mi ruta y horario
 async function searchAvailableTrips(req, res) {
     try {
@@ -123,10 +106,74 @@ async function searchAvailableTrips(req, res) {
 
 //poder publicar y ofrecer viajes en los que esté dispuesto a compartir mi vehículo con otros pasajeros
 
+async function offerTrip(req, res) {
+    try {
+        const { originId, destinationId, departure_time, available_seats, vehicle_type, favorite_genre, languaje, driving_skills,
+            pets_accepted, maximum_baggage } = req.body;
 
+        // Realiza la lógica para crear y guardar un nuevo viaje en la base de datos
+        const newTrip = await Trip.create(req.body);
+        const user = await newTrip.setUsers(res.locals.user.id)
 
+        return res.status(200).json(newTrip);
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
 
+// obtener todos los viajes con sus rating
+async function searchAllTripsRatings(req, res) {
+    try {
+        const result = await Trip.findAll({
+            include: [{ model: Rating }],
+        });
 
+        if (result.length > 0) {
+            return res.status(200).json(result);
+        } else {
+            return res.status(404).send('No trips available for the specified route and departure time');
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
+// anadir un viaje a un usuario
+async function addUserTrip(req, res) {
+    try {
+        const trip = await Trip.findByPk(req.params.tripId);
+        console.log(trip)
+        console.log(res.locals.user.id)
+        const user = await trip.setUsers(res.locals.user.id)
+        if (user) {
+            return res.status(200).json(user);
+        } else {
+            return res.status(404).send('No trips available for the specified route and departure time');
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
+//quiero contar con un sistema de retroalimentación bidireccional, permitiéndome tanto dar como recibir comentarios y calificaciones sobre la experiencia del viaje compartido, con el objetivo de mantener un entorno confiable y de calidad en la plataforma. 
+
+async function provideFeedback(req, res) {
+    try {
+        const { user_id_qualifier, user_id_qualified, score, comments } = req.body;
+
+        // Realiza la lógica para guardar el feedback en la base de datos
+        const newRating = await Rating.create({
+            user_id_qualifier: user_id_qualifier,
+            user_id_qualified: user_id_qualified,
+            score,
+            comments
+        });
+
+        return res.status(200).json(newRating);
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
 
 
 module.exports = {
@@ -135,6 +182,10 @@ module.exports = {
     createTrip,
     updateTrip,
     deleteTrip,
-    getAllTripEager,
-   searchAvailableTrips
+    searchAvailableTrips,
+    offerTrip, 
+    searchAllTripsRatings,
+    addUserTrip,
+    provideFeedback
+    
 }

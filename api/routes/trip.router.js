@@ -1,19 +1,32 @@
 const router = require('express').Router()
 
-const { getAllTrips, 
+const checkAuth = require('../../middlewares/auth.middlewares')
+const {                                                                         getAllTrips, 
     getOneTrip,
     createTrip,
     updateTrip,
     deleteTrip,
-    getAllTripEager,
-    searchAvailableTrips } = require('../controllers/trip.controller')
+    searchAvailableTrips,
+    offerTrip,
+    searchAllTripsRatings,
+    addUserTrip,
+    provideFeedback } = require('../controllers/trip.controller')
 
 router.get('/', getAllTrips)
+
 router.get('/search',searchAvailableTrips)
-router.get('/:originId/:destinationId', getAllTripEager)
+
+router.get('/searchAllTripsRatings', searchAllTripsRatings)
+
+
 router.get('/:id', getOneTrip)
 
+router.post('/offerTrip',checkAuth, offerTrip)
+
 router.post('/', createTrip)
+router.post('/provideFeedback', provideFeedback)
+
+router.post('/addUserTrip/:tripId', checkAuth, addUserTrip)
 
 router.put('/:id', updateTrip)
 

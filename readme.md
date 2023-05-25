@@ -114,15 +114,15 @@ Criterios de aceptación:
 
 MVP
 
-1. Como usuario, quiero poder registrarme en la plataforma proporcionando mi información personal, incluyendo mi nombre, dirección de correo electrónico y detalles del vehículo que utilizaré para los viajes compartidos. 
+//ok  1. Como usuario, quiero poder registrarme en la plataforma proporcionando mi información personal, incluyendo mi nombre, dirección de correo electrónico y detalles del vehículo que utilizaré para los viajes compartidos. //ok ((signup))
 
-2. Como usuario, quiero poder iniciar sesión en mi cuenta para acceder a todas las funcionalidades de la plataforma. 
+//ok 2. Como usuario, quiero poder iniciar sesión en mi cuenta para acceder a todas las funcionalidades de la plataforma. ((login))
 
-3. Como usuario, quiero poder buscar y ver viajes disponibles que se ajusten a mi ruta y horario. 
+//ok 3. Como usuario, quiero poder buscar y ver viajes disponibles que se ajusten a mi ruta y horario. ((searchAvailableTrips))
 
-4. Como usuario, quiero poder publicar y ofrecer viajes en los que esté dispuesto a compartir mi vehículo con otros pasajeros. 
+ok//4. Como usuario, quiero poder publicar y ofrecer viajes en los que esté dispuesto a compartir mi vehículo con otros pasajeros. ((offerTrip))
 
-5. Como usuario, quiero poder seleccionar y solicitar un viaje que me convenga y esté disponible. 
+//ok 5. Como usuario, quiero poder seleccionar y solicitar un viaje que me convenga y esté disponible. ((addUserTrip))
 
 6. Como usuario, quiero recibir notificaciones por correo electrónico o en la aplicación para confirmar la aceptación de mi solicitud de viaje compartido. 
 
