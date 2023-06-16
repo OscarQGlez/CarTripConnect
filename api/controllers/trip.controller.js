@@ -140,11 +140,10 @@ async function searchAllTripsRatings(req, res) {
 }
 
 // anadir un viaje a un usuario
+
 async function addUserTrip(req, res) {
     try {
         const trip = await Trip.findByPk(req.params.tripId);
-        //console.log('--------',trip)
-        //console.log(res.locals.user.id)
         const user = await trip.setUser(res.locals.user.id)
         if (user) {
             return res.status(200).json(user);

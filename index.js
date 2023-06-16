@@ -18,7 +18,8 @@
 
 require('dotenv').config()
 const express = require('express')
-
+const morgan = require('morgan');
+const cors = require('cors');
 const sequelize = require('./db')
 const createRelations = require('./db/relationships')
 
@@ -42,6 +43,8 @@ const start = async () => {
   try {
 
     app.use(express.json())
+    app.use(morgan('combined'));
+    app.use(cors()); 
     //app.get('/api', (req, res) => res.send('Welcome to CarTripConnect API'))
     app.use('/api', router)
     await app.listen(process.env.PORT || 2222)
