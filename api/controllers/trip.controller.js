@@ -110,7 +110,7 @@ async function offerTrip(req, res) {
    
     try {      
         req.body.userId = res.locals.user.id
-        console.log(res.locals.user.id)
+        console.log(req.body)
         // Realiza la lógica para crear y guardar un nuevo viaje en la base de datos
         const newTrip = await Trip.create(req.body);
         console.log(newTrip)
@@ -171,6 +171,22 @@ async function provideFeedback(req, res) {
     }
 }
 
+
+async function getAllTripsEager(req, res) {
+    try {
+        const trips = await Trip.findAll({
+           include: [{model:Origin}, {model:Destination}]
+        });
+        if (trips) {
+            return res.status(200).json(trips)
+        } else {
+            return res.status(404).send('No trips found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
 module.exports = {
     getAllTrips,
     getOneTrip,
@@ -181,5 +197,7 @@ module.exports = {
     offerTrip, 
     searchAllTripsRatings,
     addUserTrip,
-    provideFeedback
+    provideFeedback,
+    getAllTripsEager
+
 }

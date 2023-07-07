@@ -10,9 +10,11 @@ const {                                                                         
     offerTrip,
     searchAllTripsRatings,
     addUserTrip,
-    provideFeedback } = require('../controllers/trip.controller')
+    provideFeedback,
+    getAllTripsEager } = require('../controllers/trip.controller')
 
 router.get('/', getAllTrips)
+router.get('/eager', getAllTripsEager)
 router.get('/search',searchAvailableTrips)
 router.get('/searchAllTripsRatings', searchAllTripsRatings)
 router.get('/:id', getOneTrip)
